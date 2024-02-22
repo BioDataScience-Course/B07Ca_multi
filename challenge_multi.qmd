@@ -1,0 +1,194 @@
+---
+title: "Challenge : analyses multivariées"
+author: "___"
+date: "`r Sys.Date()`"
+format:
+  html:
+    code-fold: true
+    code-tools: true
+    toc: true
+editor: visual
+lang: fr
+---
+
+```{r setup, include=FALSE}
+SciViews::R("explore", lang = "fr")
+source("R/functions.R")
+
+# Lecture des données
+read("varespec", package = "vegan") %>.%
+  srename(., station = .rownames) ->
+  varespec
+read("varechem", package = "vegan") %>.%
+  srename(., station = .rownames) ->
+  varechem
+read("BCI", package = "vegan") %>.%
+  as_dtf(.) %>.%
+  setRownames(., 1:50) ->
+  bci
+read("BCI.env", package = "vegan") %>.%
+  as_dtf(.) %>.%
+  setRownames(., 1:50) ->
+  bcienv
+```
+
+# Impact du pâturage par des rennes sur le sous-bois des forêts de *Pinus sylvestris*
+
+Dans cet exercice, vous allez explorer l'impact du pâturage des rennes sur la structure de la végétation et les caractéristiques du sol dans des landes oligotrophes sèches. Ces données proviennent de forêts de pins oligotrophes (*Pinus sylvestris*) situées dans l'est de la Fennoscandie (voir carte ci-dessous).
+
+![](figures/Fenn.jpg)
+
+Les données ont été collectées dans 24 sites différents. Ces sites comprennent des zones avec différentes pressions de pâturage, ainsi que des exclos empêchant le pâturage et installés 50 ans auparavant.
+
+Le tableau `varespec` reprend les pourcentages de couverture végétale pour les plantes présentes dans chaque site. Le tableau `varechem` rassemble quatorze variables environnementales enregistrées dans chaque site, dont onze sont utilisées pour estimer la quantité de nutriments présents dans la matière organique (MO).
+
+```{r}
+skimr::skim(varechem)
+```
+
+Les différentes variables de `varechem` sont expliquées dans le tableau ci-dessous.
+
+|   variable   | description                    | unités     |
+|:------------:|:-------------------------------|:-----------|
+|    **N**     | azote                          | mg/g de MO |
+|    **P**     | phosphore                      | µg/g de MO |
+|    **K**     | potassium                      | µg/g de MO |
+|    **Ca**    | calcium                        | µg/g de MO |
+|    **Mg**    | magnésium                      | µg/g de MO |
+|    **S**     | soufre                         | µg/g de MO |
+|    **Al**    | aluminium                      | µg/g de MO |
+|    **Fe**    | fer                            | µg/g de MO |
+|    **Mn**    | manganèse                      | µg/g de MO |
+|    **Zn**    | zinc                           | µg/g de MO |
+|    **Mo**    | molybdène                      | µg/g de MO |
+| **Baresoil** | surface estimée de sol nu      | \%         |
+| **Humdepth** | épaisseur de la couche d'humus | cm         |
+|    **pH**    | pH du sol                      | \-         |
+
+## Item 1
+
+Reproduisez le dendrogramme réalisé à partir des pourcentages de couverture végétale des espèces `varespec`.
+
+![](figures/multi01-1.png)
+
+```{r multi01}
+
+```
+
+Votre score est de **`r score_multi(1)`**.
+
+## Item 2
+
+Reproduisez le graphique suivant qui ordonne les stations en fonction des pourcentages de couverture végétale dans `varespec`.
+
+![](figures/multi02-1.png)
+
+```{r multi02}
+
+```
+
+Votre score est de **`r score_multi(2)`**.
+
+## Item 3
+
+Utilisez une méthode d'analyse multivariée pour regrouper les stations en fonction des paramètres environnementaux de `varechem`. Utilisez un "seed" de 123 en début de chunk et représentez le regroupement pour le potassium en fonction de l'épaisseur de la couche d'humus.
+
+![](figures/multi03-1.png)
+
+```{r multi03}
+
+```
+
+Votre score est de **`r score_multi(3)`**.
+
+## Item 4
+
+Réalisez le graphique suivant à partir de `varespec`.
+
+![](figures/multi04-1.png)
+
+```{r multi04}
+
+```
+
+Votre score est de **`r score_multi(4)`**.
+
+## Item 5
+
+Reproduisez le dendrogramme ci-dessous réalisé à partir des mesures environnementales `varechem`.
+
+![](figures/multi05-1.png)
+
+```{r multi05}
+
+```
+
+Votre score est de **`r score_multi(5)`**.
+
+## Item 6
+
+Reproduisez le graphique suivant à partir du tableau `varechem`.
+
+![](figures/multi06-1.png)
+
+```{r multi06}
+
+```
+
+Votre score est de **`r score_multi(6)`**.
+
+# Diversité des arbres sur un île tropicale
+
+Les arbres présents dans cinquante quadras d'un hectare chacun ont été décompté sur l'île de Barro Colorado au Panama. Ces résultats sont rassemblés dans le tableau `bci`.
+
+## Item 7
+
+Reproduisez le graphique suivant à partir du tableau `bci`.
+
+![](figures/multi07-1.png)
+
+```{r multi07}
+
+```
+
+Votre score est de **`r score_multi(7)`**.
+
+## Item 8
+
+Créez à l'identique cette ordination à partir de `bci` (utilisez un "seed" de 900).
+
+![](figures/multi08-1.png)
+
+```{r multi08}
+
+```
+
+Votre score est de **`r score_multi(8)`**.
+
+## Item 9
+
+Réalisez le regroupement suivant sur le tableau `bci` transposé (les labels ne sont pas affichés).
+
+![](figures/multi09-1.png)
+
+```{r multi09}
+
+```
+
+Votre score est de **`r score_multi(9)`**.
+
+## Item 10
+
+Reproduisez le graphique suivant à partir du tableau `bci` (la couleur utilisée ici est `cornsilk`).
+
+![](figures/multi10-1.png)
+
+```{r multi10}
+
+```
+
+Votre score est de **`r score_multi(10)`**.
+
+# Score final
+
+Votre score total est de **`r res <- score_all_multi(); round(sum(res), 1)`/10**. Si vous soumettez votre réponse (exportez le fichier results/`r  attr(res, "file")` et soumettez-le dans l'app Shiny du challenge), faites un commit avec comme message le numéro **`r attr(res, "id")`**.

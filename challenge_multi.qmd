@@ -91,7 +91,7 @@ Votre score est de **`r score_multi(2)`**.
 
 ## Item 3
 
-Utilisez une méthode d'analyse multivariée pour regrouper les stations en fonction des paramètres environnementaux de `varechem`. Utilisez un "seed" de 123 en début de chunk et représentez le regroupement pour le potassium en fonction de l'épaisseur de la couche d'humus.
+Utilisez une méthode d'analyse multivariée pour regrouper les stations en fonction des paramètres environnementaux de `varechem`. Utilisez un "seed" de 4262 en début de chunk et représentez le regroupement pour le phosphore en fonction du pH.
 
 ![](figures/multi03-1.png)
 
@@ -103,7 +103,7 @@ Votre score est de **`r score_multi(3)`**.
 
 ## Item 4
 
-Réalisez le graphique suivant à partir de `varespec`.
+Réalisez le graphique suivant à partir de `varespec` (la couleur utilisée ici est `cornsilk`).
 
 ![](figures/multi04-1.png)
 
@@ -143,7 +143,7 @@ Les arbres présents dans cinquante quadras d'un hectare chacun ont été décom
 
 ## Item 7
 
-Reproduisez le graphique suivant à partir du tableau `bci`.
+Reproduisez le graphique suivant à partir du tableau `bci` (coupure à 1).
 
 ![](figures/multi07-1.png)
 
@@ -155,7 +155,7 @@ Votre score est de **`r score_multi(7)`**.
 
 ## Item 8
 
-Créez à l'identique cette ordination à partir de `bci` (utilisez un "seed" de 900).
+Créez à l'identique cette ordination à partir de `bci` (utilisez un "seed" de 1058).
 
 ![](figures/multi08-1.png)
 
@@ -167,7 +167,7 @@ Votre score est de **`r score_multi(8)`**.
 
 ## Item 9
 
-Réalisez le regroupement suivant sur le tableau `bci` transposé (les labels ne sont pas affichés).
+Réalisez le regroupement suivant sur le tableau `bci` transposé (les labels ne sont pas affichés et la coupure est indiquée à 0.92).
 
 ![](figures/multi09-1.png)
 
@@ -179,7 +179,7 @@ Votre score est de **`r score_multi(9)`**.
 
 ## Item 10
 
-Reproduisez le graphique suivant à partir du tableau `bci` (la couleur utilisée ici est `cornsilk`).
+Reproduisez le graphique suivant à partir du tableau `bci`.
 
 ![](figures/multi10-1.png)
 
